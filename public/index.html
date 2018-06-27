@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #btn{
+            border: none;outline: none;background: #37aac4;height: 40px;line-height: 40px;color: #fff;font-size: 18px;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <button id='btn'>
+        点击获得后台数据
+    </button>
+    <p id='p'>
+
+    </p>
+</body>
+<script>
+    btn.onclick = function () {
+        var xhr = new XMLHttpRequest()
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                p.innerHTML = xhr.responseText
+            }
+        }
+        url='/test/api/profit/diamond/account/info'
+        xhr.open('get', url, true)
+        xhr.send(null)
+    }
+</script>
+
+</html>
