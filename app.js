@@ -25,14 +25,26 @@ app.all('*', function (req, res, next) {
 
 routes(app);
 
+var interfaces = require('os').networkInterfaces();  
 
+var host = '';  
+for(var devName in interfaces){  
+	  var iface = interfaces[devName];  
+	  for(var i=0;i<iface.length;i++){  
+		   var alias = iface[i];  
+		   if(alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal){  
+			host = alias.address;  
+		   }  
+	  }  
+}  
 var server = newFunction();
 function newFunction() {
 	return app.listen(3000, function () {
 		// var host = net.en0[1].address||'';
 		// var host2 = net.lo0[0].address || ''
 		// var port = server.address().port;
-		console.log("应用实例，访问地址为 http://%s:%s");
+		var port = 3000;
+		console.log("应用实例，访问地址为 http://%s:%s",host,port);
 		// console.log("应用实例，也可以访问地址为 http://%s:%s", host2, port);
 	});
 }
