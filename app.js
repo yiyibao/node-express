@@ -29,10 +29,11 @@ routes(app);
 var server = newFunction();
 function newFunction() {
 	return app.listen(3000, function () {
-		var host = net.en0[1].address;
-		var port = server.address().port;
-		console.log("应用实例，访问地址为 http://%s:%s", host, port);
-		console.log("应用实例，也可以访问地址为 http://%s:%s", net.lo0[0].address, port);
+		// var host = net.en0[1].address||'';
+		// var host2 = net.lo0[0].address || ''
+		// var port = server.address().port;
+		console.log("应用实例，访问地址为 http://%s:%s");
+		// console.log("应用实例，也可以访问地址为 http://%s:%s", host2, port);
 	});
 }
 
