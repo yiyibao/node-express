@@ -1,14 +1,15 @@
 var express = require('express');
 var app = express();
 var path = require('path');
-var os = require("os");
+const fs = require('fs')
 // var bodyParser = require('body-parser')
 // app.use(bodyParser.urlencoded({ extended: false }));
-var net = os.networkInterfaces();
 
-const routes = require('./routes/index');
-app.use('/', express.static(path.join(__dirname, 'public')));
+const routes = require('./routes/index');//接口数据
 
+const crl = require('./controller/index');//服务端路由controller
+
+//设置跨域头
 app.all('*', function (req, res, next) {
 	res.header("Access-Control-Allow-Origin", "*");
 	res.header("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With,imgverifycode");
@@ -24,6 +25,7 @@ app.all('*', function (req, res, next) {
 });
 
 routes(app);
+crl(app);
 
 var interfaces = require('os').networkInterfaces();  
 
@@ -40,12 +42,8 @@ for(var devName in interfaces){
 var server = newFunction();
 function newFunction() {
 	return app.listen(3000, function () {
-		// var host = net.en0[1].address||'';
-		// var host2 = net.lo0[0].address || ''
-		// var port = server.address().port;
 		var port = 3000;
 		console.log("应用实例，访问地址为 http://%s:%s",host,port);
-		// console.log("应用实例，也可以访问地址为 http://%s:%s", host2, port);
 	});
 }
 
