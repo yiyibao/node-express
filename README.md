@@ -21,6 +21,8 @@ node +fileName
 	``` bash
 项目名称---|
 	|
+	----controller 路由模块
+	|
 	---public 静态资源
 	|
 	---routes 接口模块
