@@ -18,7 +18,7 @@ node +fileName
 ```
 ## 简单的express项目结构
 	
-	``` bash
+ ``` bash
 项目名称---|
 	|
 	----controller 路由模块
@@ -32,11 +32,12 @@ node +fileName
 	|    ---业务文件
 	|
 	---node.js 入口文件	
-	```
+
+```
 
 ## 解析
 	
-	``` bash
+ ``` bash
 	1、支持跨域
 
 	app.all('*', function(req, res, next) {
@@ -88,5 +89,4 @@ node +fileName
 	module.exports = router;
 
 	That is OK! you can do it!
-
-	```
+```
