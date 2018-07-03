@@ -21,6 +21,8 @@ node +fileName
 	``` bash
 项目名称---|
 	|
+	----contoller 路由模块
+	|
 	---public 静态资源
 	|
 	---routes 接口模块
@@ -51,23 +53,8 @@ node +fileName
 
 	});
 
-	2、服务的端口
-
-	使用模块 os模块
-	var os = require("os");
-
-	var net = os.networkInterfaces();
-
-	var server = app.listen(80, function() {
-
-		var host = net.en0[1].address;
-		var port = server.address().port;
-		console.log("应用实例，访问地址为 http://%s:%s", host, port);
-		console.log("应用实例，也可以访问地址为 http://%s:%s", net.lo0[0].address, port);
-
-	});
-
-	3、express及express-router的使用
+	
+	2、express及express-router的使用
 
 	node.js
 	var express = require('express');
