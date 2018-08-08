@@ -14,7 +14,7 @@ npm install
 ## 运行
 
  ``` bash
-node +fileName
+node app.js
 ```
 ## 简单的express项目结构
 	
@@ -31,7 +31,7 @@ node +fileName
 	|   |
 	|    ---业务文件
 	|
-	---node.js 入口文件	
+	---app.js 入口文件	
 
 ```
 
